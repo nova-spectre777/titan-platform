@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "titan-autonomous-platform"
+version = "0.1.0"
+description = "A modular open-source platform for autonomous software engineering, cloud orchestration, distributed compute, self-healing systems, and AI-native workflows."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "Nova Spectre"}]
+dependencies = []
+keywords = ["agents", "developer-tools", "distributed-systems", "automation", "ai", "orchestration"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+api = ["fastapi>=0.110", "uvicorn>=0.27"]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+titan = "titan.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["titan*"]
+
+[tool.setuptools.package-data]
+titan = ["dashboard/*"]
